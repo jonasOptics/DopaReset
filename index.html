@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DopaReset - Reinicie Sua Mente e Retome o Controle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+        }
+        .accent-gradient {
+            background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur fixed w-full z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-brain text-indigo-500 text-2xl"></i>
+                <span class="text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">
+                    DopaReset
+                </span>
+            </div>
+            <a href="#quiz-section" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-4 py-2 rounded-lg text-sm transition">
+                Fazer o Teste Grátis
+            </a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- Hero Section / Descrição Comercial -->
+        <section class="max-w-4xl mx-auto px-4 py-12 text-center">
+            <span class="bg-indigo-950 text-indigo-300 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-indigo-800">
+                Método de Reconfiguração Neural
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mt-6 leading-tight">
+                Recupere seu foco, disciplina e energia em <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">21 Dias</span>.
+            </h1>
+            <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto">
+                Você se sente travado, sem energia, procrastinando o dia todo e viciado nas telas? O <strong>DopaReset</strong> é um protocolo prático projetado para "resetar" os receptores de dopamina do seu cérebro, livrar você do ciclo de preguiça e devolver sua capacidade de foco profundo.
+            </p>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz-section" class="max-w-2xl mx-auto px-4 py-8">
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
+                <div id="quiz-container">
+                    <div class="mb-6">
+                        <div class="flex justify-between text-xs text-slate-400 mb-2 font-semibold">
+                            <span>Diagnóstico de Dopamina</span>
+                            <span id="quiz-progress-text">Pergunta 1 de 4</span>
+                        </div>
+                        <div class="w-full bg-slate-800 rounded-full h-2">
+                            <div id="quiz-progress-bar" class="bg-indigo-500 h-2 rounded-full transition-all duration-300" style="width: 25%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Pergunta 1 -->
+                    <div id="step-1" class="quiz-step">
+                        <h3 class="text-xl font-bold text-white mb-4">Qual é a primeira coisa que você faz ao acordar?</h3>
+                        <div class="space-y-3">
+                            <button onclick="nextStep(1, 3)" class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-indigo-500 transition flex justify-between items-center">
+                                <span>Pego o celular e fico navegando por minutos/horas.</span>
+                                <i class="fa-solid fa-chevron-right text-slate-500"></i>
+                            </button>
+                            <button onclick="nextStep(1, 2)" class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-indigo-500 transition flex justify-between items-center">
+                                <span>Desligo o alarme e demoro a levantar por falta de energia.</span>
+                                <i class="fa-solid fa-chevron-right text-slate-500"></i>
+                            </button>
+                            <button onclick="nextStep(1, 1)" class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-indigo-500 transition flex justify-between items-center">
+                                <span>Levanto imediatamente e sigo minha rotina matinal.</span>
+                                <i class="fa-solid fa-chevron-right text-slate-500"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pergunta 2 -->
+                    <div id="step-2" class="quiz-step hidden">
+                        <h3 class="text-xl font-bold text-white mb-4">Como está sua capacidade de manter o foco em tarefas difíceis?</h3>
+                        <div class="space-y-3">
+                            <button onclick="nextStep(2, 3)" class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-indigo-500 transition flex justify-between items-center">
+                                <span>Péssima. Me distraio a cada 5 minutos com notificações ou redes.</span>
+                                <i class="fa-solid fa-chevron-right text-slate-500"></i>
+                            </button>
+                            <button onclick="nextStep(2, 2)" class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-indigo-500 transition flex justify-between items-center">
+                                <span>Moderada. Preciso de muito esforço e café para focar um pouco.</span>
+                                <i class="fa-solid fa-chevron-right text-slate-500"></i>
+                            </button>
+                            <button onclick="nextStep(2, 1)" class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-indigo-500 transition flex justify-between items-center">
+                                <span>Boa. Consigo trabalhar por horas sem me distrair.</span>
+                                <i class="fa-solid fa-chevron-right text-slate-500"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pergunta 3 -->
+                    <div id="step-3" class="quiz-step hidden">
+                        <h3 class="text-xl font-bold text-white mb-4">Qual o seu maior desafio ao tentar criar novos hábitos?</h3>
+                        <div class="space-y-3">
+                            <button onclick="nextStep(3, 3)" class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-indigo-500 transition flex justify-between items-center">
+                                <span>Começo com gás, mas desisto no 3º dia por falta de motivação.</span>
+                                <i class="fa-solid fa-chevron-right text-slate-500"></i>
+                            </button>
+                            <button onclick="nextStep(3, 2)" class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-indigo-500 transition flex justify-between items-center">
+                                <span>Sinto que a rotina me esmaga e não tenho tempo/energia.</span>
+                                <i class="fa-solid fa-chevron-right text-slate-500"></i>
+                            </button>
+                            <button onclick="nextStep(3, 1)" class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-indigo-500 transition flex justify-between items-center">
+                                <span>Consigo manter hábitos, mas quero otimizar meu desempenho.</span>
+                                <i class="fa-solid fa-chevron-right text-slate-500"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pergunta 4 -->
+                    <div id="step-4" class="quiz-step hidden">
+                        <h3 class="text-xl font-bold text-white mb-4">Como você se sente ao final do dia?</h3>
+                        <div class="space-y-3">
+                            <button onclick="finishQuiz(3)" class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-indigo-500 transition flex justify-between items-center">
+                                <span>Cansado mentalmente, com a sensação de que não fiz nada produtivo.</span>
+                                <i class="fa-solid fa-chevron-right text-slate-500"></i>
+                            </button>
+                            <button onclick="finishQuiz(2)" class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-indigo-500 transition flex justify-between items-center">
+                                <span>Fiz o básico, mas sei que renderia muito mais.</span>
+                                <i class="fa-solid fa-chevron-right text-slate-500"></i>
+                            </button>
+                            <button onclick="finishQuiz(1)" class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-indigo-500 transition flex justify-between items-center">
+                                <span>Satisfeito e com sensação de dever cumprido.</span>
+                                <i class="fa-solid fa-chevron-right text-slate-500"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Resultado -->
+                    <div id="quiz-result" class="hidden text-center py-4">
+                        <div class="w-16 h-16 bg-red-500/10 border border-red-500/30 text-red-400 rounded-full flex items-center justify-center mx-auto text-2xl mb-4">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Nível de Sobrecarga Dopaminérgica: <span class="text-red-400 font-black">CRÍTICO</span></h3>
+                        <p class="text-slate-300 mt-3 text-sm leading-relaxed">
+                            Seus receptores mentais estão dessensibilizados por estandartes baixos de recompensa imediata (telas, estímulos rápidos). É por isso que você se sente "preso" e sem força de vontade.
+                        </p>
+                        
+                        <div class="mt-6 p-4 bg-slate-800/80 rounded-xl text-left border border-slate-700">
+                            <h4 class="text-indigo-400 font-bold text-sm uppercase mb-2"><i class="fa-solid fa-key mr-2"></i>Estratégia Recomendada:</h4>
+                            <p class="text-xs text-slate-300">Aplicar a <strong>Estratégia do Desmame Gradual & Sustentado (3 Passos)</strong> para reduzir o ruído neuroquímico sem causar pânico comportamental.</p>
+                        </div>
+
+                        <a href="https://pay.kiwify.com.br/UcZEEB9" target="_blank" rel="noopener noreferrer" class="mt-6 inline-block w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold py-4 rounded-xl shadow-lg transition text-center">
+                            Desbloquear Protocolo DopaReset Agora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estratégia / Conteúdo Explicativo -->
+        <section id="solucao" class="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white">A Estratégia de Desbloqueio Neural</h2>
+                <p class="text-slate-400 mt-2">Por que você continua travado e como o DopaReset resolve isso.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                    <div class="text-indigo-400 text-2xl font-bold mb-3">01. Cerca Sanitária</div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Isolamento do Estímulo Extra</h3>
+                    <p class="text-slate-400 text-sm">Identificação e eliminação de gatilhos inconscientes nos primeiros 60 minutos do dia. O foco não é parar de usar tecnologia, mas redefinir quando e como usá-la.</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                    <div class="text-indigo-400 text-2xl font-bold mb-3">02. Substituição Progressiva</div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Micro-Vitórias Fisiológicas</h3>
+                    <p class="text-slate-400 text-sm">Trocar a dopamina barata (redes sociais, pornografia, junk food) por dopamina conquistada (exercício curto, leituras focadas, banho frio, metas concluídas).</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                    <div class="text-indigo-400 text-2xl font-bold mb-3">03. Ancoragem de Rotina</div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Blocos de Trabalho Profundo</h3>
+                    <p class="text-slate-400 text-sm">Reestruturação do seu dia em blocos inegociáveis de ação, eliminando a dependência do sentimento de "motivação" para agir.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://pay.kiwify.com.br/UcZEEB9" target="_blank" rel="noopener noreferrer" class="inline-block bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition">
+                    Garantir Meu Acesso ao Protocolo na Kiwify
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-900 py-8 text-center text-xs text-slate-500">
+        <p>&copy; 2026 DopaReset. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        let totalScore = 0;
+
+        function nextStep(current, score) {
+            totalScore += score;
+            document.getElementById(`step-${current}`).classList.add('hidden');
+            
+            const next = current + 1;
+            document.getElementById(`step-${next}`).classList.remove('hidden');
+
+            // Atualiza progresso
+            const percent = (next / 4) * 100;
+            document.getElementById('quiz-progress-bar').style.width = `${percent}%`;
+            document.getElementById('quiz-progress-text').innerText = `Pergunta ${next} de 4`;
+        }
+
+        function finishQuiz(score) {
+            totalScore += score;
+            document.getElementById('step-4').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            document.getElementById('quiz-progress-bar').style.width = `100%`;
+            document.getElementById('quiz-progress-text').innerText = `Diagnóstico Concluído`;
+        }
+    </script>
+</body>
+</html>
